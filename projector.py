@@ -154,10 +154,9 @@ class Projector:
         projections *= self.sum_counts/projections.sum()
         projections[...] = self.rng.poisson(projections)
         
-    def start(self):
+    def run(self):
         projections = []
         for angle in self.angles:
-            print(f'Angle: {angle}')
             projection = self.get_projection(angle)
             projections.append(projection)
         projections = np.array(projections)
