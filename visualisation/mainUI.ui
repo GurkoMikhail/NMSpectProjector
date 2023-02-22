@@ -258,17 +258,11 @@
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacerOfAnglesStart">
+           <widget class="Line" name="lineOfAnglesStart">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Vertical</enum>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           </widget>
           </item>
           <item>
            <widget class="QLabel" name="labelOfAnglesStart">
@@ -286,19 +280,6 @@
              <double>360.000000000000000</double>
             </property>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacerOfAnglesStop">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QLabel" name="labelOfAnglesStop">
@@ -321,19 +302,6 @@
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacerOfAnglesNumber">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QLabel" name="labelOfAnglesNumber">
             <property name="text">
              <string>Number</string>
@@ -354,6 +322,9 @@
            <spacer name="horizontalSpacerOfAngles">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -584,8 +555,109 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="actionOpenActivityMap"/>
+     <addaction name="actionOpenAttenuationMap"/>
+    </widget>
+    <widget class="QMenu" name="menuSave">
+     <property name="title">
+      <string>Save</string>
+     </property>
+     <addaction name="actionSaveActivityMap"/>
+     <addaction name="actionSaveAttenuationMap"/>
+     <addaction name="actionSaveProjections"/>
+    </widget>
+    <addaction name="menuOpen"/>
+    <addaction name="menuSave"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuChangeValue">
+     <property name="title">
+      <string>Change value</string>
+     </property>
+     <addaction name="actionChangeActivityMap"/>
+     <addaction name="actionChangeAttenuationMap"/>
+    </widget>
+    <widget class="QMenu" name="menuRotate">
+     <property name="title">
+      <string>Rotate</string>
+     </property>
+     <addaction name="actionRotateActivityMap"/>
+     <addaction name="actionRotateAttenuationMap"/>
+     <addaction name="actionRotateProjections"/>
+    </widget>
+    <addaction name="menuChangeValue"/>
+    <addaction name="menuRotate"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpenActivityMap">
+   <property name="text">
+    <string>Activity map</string>
+   </property>
+  </action>
+  <action name="actionOpenAttenuationMap">
+   <property name="text">
+    <string>Attenuation map</string>
+   </property>
+  </action>
+  <action name="actionChangeActivityMap">
+   <property name="text">
+    <string>Activity map</string>
+   </property>
+  </action>
+  <action name="actionChangeAttenuationMap">
+   <property name="text">
+    <string>Attenuation map</string>
+   </property>
+  </action>
+  <action name="actionChangeProjections">
+   <property name="text">
+    <string>Projections</string>
+   </property>
+  </action>
+  <action name="actionRotateActivityMap">
+   <property name="text">
+    <string>Activity map</string>
+   </property>
+  </action>
+  <action name="actionRotateAttenuationMap">
+   <property name="text">
+    <string>Attenuation map</string>
+   </property>
+  </action>
+  <action name="actionRotateProjections">
+   <property name="text">
+    <string>Projections</string>
+   </property>
+  </action>
+  <action name="actionSaveActivityMap">
+   <property name="text">
+    <string>Activity map</string>
+   </property>
+  </action>
+  <action name="actionSaveAttenuationMap">
+   <property name="text">
+    <string>Attenuation map</string>
+   </property>
+  </action>
+  <action name="actionSaveProjections">
+   <property name="text">
+    <string>Projections</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
