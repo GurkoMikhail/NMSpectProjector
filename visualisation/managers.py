@@ -152,7 +152,7 @@ class Editor:
             return np.loadtxt(fileName).reshape(shape, order=order)
         raise ValueError('Неверное расширение файла')
     
-    def saveFile(self, fileArray, fileName, **kwargs):
+    def saveFile(self, fileArray, fileName: str, **kwargs):
         _, fileType = fileName.split('.')
         if fileType == 'npy':
             np.save(fileName, fileArray)
@@ -163,6 +163,8 @@ class Editor:
             sitk.WriteImage(image, fileName)
             return
         if fileType == 'dat':
+            if fileArray.ndim > 2:
+                fileArray = fileArray.flatten()
             np.savetxt(fileName, fileArray)
             return
         raise ValueError('Неверное расширение файла')
@@ -188,6 +190,9 @@ class Editor:
     def saveProjections(self):
         fileName, _ = QFileDialog.getSaveFileName(directory=self.saveDirectory)
         self.saveFile(self.projections, fileName)
+        path_, format_ = fileName.split(".")
+        for num, projection in enumerate(self.projections):
+            self.saveFile(projection, (path_ + f"{num + 1}." + format_))
         
     def updateProjections(self, value):
         self.projections = value
